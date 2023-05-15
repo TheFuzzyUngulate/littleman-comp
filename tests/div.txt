@@ -1,0 +1,34 @@
+        INP
+        STA a
+        STA r
+        INP
+        STA b
+        LDA zero
+        STA q
+        LDA a
+        SUB b
+        BRP loop
+        BRA end
+strt    
+        LDA q
+        ADD one
+        STA q
+        LDA r
+        SUB b
+        STA r
+loop    
+        LDA r
+        SUB b
+        BRP strt
+end     
+        LDA q
+        OUT
+        LDA r
+        OUT
+        HLT
+q       DAT
+r       DAT
+a       DAT
+b       DAT
+zero    DAT
+one     DAT 1

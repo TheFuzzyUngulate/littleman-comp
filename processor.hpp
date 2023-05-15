@@ -23,6 +23,26 @@ class Operation {
         string strarg = "";
 };
 
+class MailBoxWrapper {
+    public:
+        MailBoxWrapper() {}
+        void push_back(int item) {
+            mailboxes[_pos++] = item;
+        }
+        int& operator[](int);
+        int size() {return 100;}
+    private:
+        int mailboxes[100];
+        int _pos = 0;
+};
+
+int& MailBoxWrapper::operator[](int index) {
+    if (index >= 100) {
+        std::cerr << "mailbox index out of bounds\n";
+        exit(-1);
+    } return mailboxes[index];
+}
+
 class Processor {
     public:
         Processor(Scanner *sc) {
@@ -168,10 +188,12 @@ class Processor {
                                     if (k > 99) k %= 100;
                                     oplist.push_back(Operation(Tokens::DAT, k));
                                 }
-                                else {
+                                else
+                                if (tok == Tokens::END || tok == Tokens::BRK) {
                                     oplist.push_back(Operation(Tokens::DAT, 0));
                                     scan->unget((Tokens)tok);
                                 }
+                                else proc_err("illegal symbol procedes a dat stmt");
                                 state = 1;
                                 break;
                             }
@@ -251,7 +273,7 @@ class Processor {
         }
 
         Scanner *scan;
-        vector<int> mailboxes;
+        MailBoxWrapper mailboxes;
         map<Tokens, int> opcode;
         map<string, int> labels;
         vector<Operation> oplist;

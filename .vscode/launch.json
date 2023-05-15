@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "d:/Projects/Little Man Computer",
-      "program": "d:/Projects/Little Man Computer/build/Debug/outDebug",
+      "cwd": "d:/Projects/littleman-comp",
+      "program": "d:/Projects/littleman-comp/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

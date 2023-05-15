@@ -1,0 +1,21 @@
+        INP
+        STA x
+        LDA x
+        STA y
+loop    LDA y
+        BRZ end
+        SUB one
+        STA y
+        LDA ans
+        ADD x
+        STA ans
+        BRA loop
+end     LDA ans
+        OUT
+        SUB ans
+        STA ans
+        HLT
+x       DAT
+y       DAT
+one     DAT 1
+ans     DAT 0

@@ -1,0 +1,22 @@
+        INP
+        STA numtwo
+        INP
+        STA power
+        SUB one
+        STA power
+loop    LDA power
+        BRZ end
+        SUB one
+        STA power
+        LDA numtwo
+        ADD numtwo
+        STA numtwo
+        BRP loop
+end     LDA numtwo
+        OUT
+        SUB numtwo
+        STA numtwo
+        HLT
+numtwo  DAT
+power   DAT
+one     DAT 1
