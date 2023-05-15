@@ -1,0 +1,23 @@
+        INP
+        STA arga
+        INP
+        STA argb
+        BRA loop
+strt    LDA argb
+        ADD res
+        STA res
+        LDA arga
+        SUB one
+        STA arga
+loop    LDA zero
+        SUB arga
+        BRP end
+        BRA strt
+end     LDA res
+        OUT
+        HLT
+res     DAT
+arga    DAT
+argb    DAT
+one     DAT 1
+zero    DAT
