@@ -20,7 +20,7 @@ enum Tokens {
 	END, BRK,
 	LBL, NUM,
 	ADD, SUB,
-	STA, LDA,
+	STA, LDA, LDI,
 	BRA, BRZ, BRP,
 	INP, OUT,
 	HLT, 
@@ -117,6 +117,8 @@ class Scanner {
 						return Tokens::SUB;
 					if (lexeme == "sta")
 						return Tokens::STA;
+					if (lexeme == "ldi")
+						return Tokens::LDI;
 					if (lexeme == "lda")
 						return Tokens::LDA;
 					if (lexeme == "bra")

@@ -50,6 +50,7 @@ class Processor {
             opcode[Tokens::ADD] = 100;
             opcode[Tokens::SUB] = 200;
             opcode[Tokens::STA] = 300;
+            opcode[Tokens::LDI] = 400;
             opcode[Tokens::LDA] = 500;
             opcode[Tokens::BRA] = 600;
             opcode[Tokens::BRZ] = 700;
@@ -89,6 +90,10 @@ class Processor {
                     case 3:
                         mailboxes[backinstr] = accum;
                         Processor::log("stored accum into address " + std::to_string(backinstr));
+                        break;
+                    case 4:
+                        accum = backinstr;
+                        Processor::log("loaded immediate " + std::to_string(backinstr) + " into accum");
                         break;
                     case 5:
                         accum = mailboxes[backinstr];
