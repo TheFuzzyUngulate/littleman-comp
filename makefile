@@ -2,7 +2,7 @@ CXX = g++
 CXXFLAGS = -g
 DELETE :=
 	ifeq ($(OS),Windows_NT)
-		DELETE += del bin/lmc.exe
+		DELETE += del bin\lmc.exe
 	else
 		DELETE += rm -f bin/lmc
 	endif
