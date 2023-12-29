@@ -2,14 +2,14 @@ CXX = g++
 CXXFLAGS = -g
 DELETE :=
 	ifeq ($(OS),Windows_NT)
-		DELETE += del bin\lmc.exe
+		DELETE += del lmc.exe
 	else
-		DELETE += rm -f bin/lmc
+		DELETE += rm -f lmc
 	endif
 
-all: lmc
+all: bin/lmc
 
-lmc: src/main.cpp src/processor.hpp src/scanner.hpp
+bin/lmc: src/main.cpp src/processor.hpp src/scanner.hpp
 	$(CXX) $(CXXFLAGS) $< -o bin/lmc
 
 clean:
